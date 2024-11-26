@@ -1,21 +1,18 @@
- // @directional values for the ship
-//if keyboard_check(vk_up)
-//	motion_add(image_angle, 0.1);
-
-if keyboard_check(vk_up)
+//@directional values for the ship
+if(keyboard_check(vk_up))
 	motion_add(image_angle, 0.1);
  
-//extra directions
-if keyboard_check(vk_right)
+//turn the ship in both directions
+if(keyboard_check(vk_right))
 	image_angle -= 4;
 	
-if keyboard_check(vk_left)
+if(keyboard_check(vk_left))
 	image_angle += 4;
 
-//back slow ship (not that great..)	
-//if keyboard_check_pressed(vk_down)
-//	motion_add(image_angle, -2);
-	
-move_wrap(true, true, 0);
-
-//==========================================
+//bullet generation
+if(mouse_check_button_pressed(mb_left))
+	instance_create_layer(x,  y, "instances", obj_bullet);
+  
+//we want to keep track of the ship and let him come back if he hits 
+//the edge of the screen	 
+move_wrap(true, true, 0);  
