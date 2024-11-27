@@ -1,4 +1,4 @@
-//@directional values for the ship
+ //@directional values for the ship
 if(keyboard_check(vk_up))
 	motion_add(image_angle, 0.1);
  
@@ -13,6 +13,7 @@ if(keyboard_check(vk_left))
 if(mouse_check_button_pressed(mb_left))
 	instance_create_layer(x,  y, "instances", obj_bullet);
   
-//we want to keep track of the ship and let him come back if he hits 
-//the edge of the screen	 
-move_wrap(true, true, 0);  
+/*we want to keep track of the ship and let him come back if he hits 
+the edge of the screen*/	 
+move_wrap(true, true, 59);/*59 is the x origin since we want to check it 
+when the ship i s on this exact location (middle sprite)*/
